@@ -46,7 +46,7 @@ public class ProductBasket {
         System.out.println("Итого: " + totalCostBasket());
     }
 
-    public boolean checkingProdInBasketByTitle(String name) {
+    public boolean searchProdInBasketByTitle(String name) {
         if (count == 0) {
             System.out.println("В корзине пусто");
             return false;
