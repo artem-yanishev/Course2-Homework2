@@ -1,13 +1,12 @@
 package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
-import org.skypro.skyshop.basket2.ProductBasket2;
 import org.skypro.skyshop.product.Product;
 
 public class App {
     public static void main(String[] args) {
         ProductBasket basket = new ProductBasket();
-        ProductBasket2 basket2 = new ProductBasket2();
+        ProductBasket basket2 = new ProductBasket();
 
         Product rexona = new Product("Rexona", 100);
         Product axe = new Product("Axe", 200);
@@ -29,6 +28,7 @@ public class App {
         basket2.addBasket(daMen);
         basket2.addBasket(saMen);
         basket.printAllInBasket();
+        basket2.printAllInBasket();
         System.out.println(basket.totalCostBasket());
         basket.searchProdInBasketByTitle("Rexona");
         basket.searchProdInBasketByTitle("Nexona");
