@@ -15,6 +15,6 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return title + ": " + cost;
+        return title + ": " + getCost();
     }
 }
