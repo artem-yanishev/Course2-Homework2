@@ -39,5 +39,6 @@ public class App {
         basket.printAllInBasket();
         System.out.println(basket.totalCostBasket());
         basket.searchProdInBasketByTitle("Rexona");
+
     }
 }
