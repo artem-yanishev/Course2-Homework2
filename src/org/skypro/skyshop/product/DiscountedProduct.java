@@ -14,4 +14,9 @@ public class DiscountedProduct extends Product {
     public int getCost() {
         return simpleCost - simpleCost / 100 * discountInWholePercentages;
     }
+
+    @Override
+    public String toString() {
+        return getTitle() + ": " + getCost() + " (" + discountInWholePercentages + "%)";
+    }
 }

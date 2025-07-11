@@ -12,4 +12,10 @@ public class SimpleProduct extends Product {
     public int getCost() {
         return simpleCost;
     }
+
+    @Override
+    public String toString() {
+        return getTitle() +
+                ": " + simpleCost;
+    }
 }

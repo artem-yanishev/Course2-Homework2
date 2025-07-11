@@ -13,6 +13,10 @@ public abstract class Product {
 
     public abstract int getCost();
 
+    public boolean isSpecial() {
+        return false;
+    }
+
     @Override
     public String toString() {
         return title + ": " + getCost();
