@@ -18,4 +18,5 @@ public class SimpleProduct extends Product {
         return getTitle() +
                 ": " + simpleCost;
     }
+
 }
