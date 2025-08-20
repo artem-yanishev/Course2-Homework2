@@ -1,22 +1,24 @@
 package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
-import org.skypro.skyshop.product.Product;
+import org.skypro.skyshop.product.DiscountedProduct;
+import org.skypro.skyshop.product.FixPriceProduct;
+import org.skypro.skyshop.product.SimpleProduct;
 
 public class App {
     public static void main(String[] args) {
         ProductBasket basket = new ProductBasket();
         ProductBasket basket2 = new ProductBasket();
 
-        Product rexona = new Product("Rexona", 100);
-        Product axe = new Product("Axe", 200);
-        Product faMen = new Product("FaMen", 500);
-        Product maMen = new Product("MaMen", 123);
-        Product naMen = new Product("NaMen", 234);
-        Product raMen = new Product("RaMen", 345);
-        Product laMen = new Product("LaMen", 456);
-        Product daMen = new Product("DaMen", 567);
-        Product saMen = new Product("SaMen", 678);
+        DiscountedProduct rexona = new DiscountedProduct("Rexona", 100, 17);
+        DiscountedProduct axe = new DiscountedProduct("Axe", 200, 18);
+        DiscountedProduct faMen = new DiscountedProduct("FaMen", 500, 19);
+        DiscountedProduct maMen = new DiscountedProduct("MaMen", 123, 20);
+        DiscountedProduct naMen = new DiscountedProduct("NaMen", 234, 21);
+        FixPriceProduct raMen = new FixPriceProduct("RaMen");
+        SimpleProduct laMen = new SimpleProduct("LaMen", 456);
+        SimpleProduct daMen = new SimpleProduct("DaMen", 567);
+        SimpleProduct saMen = new SimpleProduct("SaMen", 678);
 
         basket.addBasket(rexona);
         basket.addBasket(axe);
@@ -30,11 +32,15 @@ public class App {
         basket.printAllInBasket();
         basket2.printAllInBasket();
         System.out.println(basket.totalCostBasket());
+        System.out.println(basket2.totalCostBasket());
         basket.searchProdInBasketByTitle("Rexona");
         basket.searchProdInBasketByTitle("Nexona");
         basket.emptyingTheBasket();
         basket.printAllInBasket();
         System.out.println(basket.totalCostBasket());
         basket.searchProdInBasketByTitle("Rexona");
+
+
+
     }
 }
