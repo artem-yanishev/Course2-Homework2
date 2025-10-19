@@ -14,8 +14,7 @@ public class SearchEngine {
             System.out.println("Массив поиска заполнен, нельзя добавить больше элементов!");
             return;
         }
-        items[count] = item;
-        count++;
+        items[count++] = item;
     }
 
     public Searchable[] search(String query) {
@@ -30,11 +29,10 @@ public class SearchEngine {
 
             String term = current.getSearchTerm();
             if (term != null && term.toLowerCase().contains(query.toLowerCase())) {
-                results[foundCount] = current;
-                foundCount++;
+                results[foundCount++] = current;
             }
 
-            if (foundCount == 5) {
+            if (foundCount == results.length) {
                 break;
             }
         }
