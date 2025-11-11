@@ -1,9 +1,12 @@
 package org.skypro.skyshop;
 
+import org.skypro.skyshop.article.Article;
 import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.product.DiscountedProduct;
 import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.product.SimpleProduct;
+import org.skypro.skyshop.search.SearchEngine;
+import org.skypro.skyshop.search.Searchable;
 
 public class App {
     public static void main(String[] args) {
@@ -40,7 +43,52 @@ public class App {
         System.out.println(basket.totalCostBasket());
         basket.searchProdInBasketByTitle("Rexona");
 
+        SearchEngine testSearchEngine = new SearchEngine(12);
+        testSearchEngine.add(rexona);
+        testSearchEngine.add(axe);
+        testSearchEngine.add(faMen);
+        testSearchEngine.add(maMen);
+        testSearchEngine.add(naMen);
+        testSearchEngine.add(raMen);
+        testSearchEngine.add(laMen);
+        testSearchEngine.add(daMen);
+        testSearchEngine.add(saMen);
 
+        Article article1 = new Article("Уход за телом", "Rexona — лучший дезодорант для мужчин");
+        Article article2 = new Article("Советы по гигиене", "Как выбрать дезодорант: Rexona или Axe?");
+        Article article3 = new Article("Скидки на FaMen", "В этой статье рассказывается о выгодных предложениях на FaMen");
+
+        testSearchEngine.add(article1);
+        testSearchEngine.add(article2);
+        testSearchEngine.add(article3);
+
+        String[] queries = {"Rexona", "Axe", "FaMen", "NonExisting"};
+
+        for (String q : queries) {
+            Searchable[] found = testSearchEngine.search(q);
+
+            System.out.print("Запрос: \"" + q + "\" -> ");
+            boolean anyFound = false;
+            for (Searchable s : found) {
+                if (s != null) {
+                    System.out.print(s.getStringRepresentation() + "; ");
+                    anyFound = true;
+                }
+            }
+
+            if (!anyFound) {
+                System.out.print("ничего не найдено");
+            }
+            System.out.println();
+        }
+
+        System.out.println("\nПодробный вывод результатов для запроса \"Rexona\":");
+        Searchable[] rexResults = testSearchEngine.search("Rexona");
+        for (Searchable s : rexResults) {
+            if (s != null) {
+                System.out.println(" - " + s.getStringRepresentation());
+            }
+        }
 
     }
 }
