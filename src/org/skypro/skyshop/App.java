@@ -8,8 +8,6 @@ import org.skypro.skyshop.product.SimpleProduct;
 import org.skypro.skyshop.search.SearchEngine;
 import org.skypro.skyshop.search.Searchable;
 
-import java.util.Arrays;
-
 public class App {
     public static void main(String[] args) {
         ProductBasket basket = new ProductBasket();
